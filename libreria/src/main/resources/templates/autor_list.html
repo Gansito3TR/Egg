@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+
+
+    <head>
+        <title>Lista de Autores</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+
+
+
+    <body>
+        <div>Biblioteca Gaelo / Autores</div>
+
+        <div class="container m-5">
+            <table class="table table-dark">
+                <thead>
+                    <tr>
+                        <th scope="col"> Id del autor </th>
+                        <th scope="col"> Nombre del Autor </th>
+                    </tr>
+                </thead>
+                <tbody th:each="autor : ${autores}">
+                    <tr>
+                        <th scope="row" th:text="${autor.id}"></th>
+                        <td th:text="${autor.nombre}"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div th:if="${error != null}" class="card text-white bg-danger mb-3 mensajeError">
+            <div class="card-body">
+                <h5 class="card-title"> Error 😕🥺🤕</h5>
+                <p class="card-text" th:text="${error}"></p>
+            </div>
+        </div>
+
+        <div th:if="${exito != null}" class="card text-white bg-danger mb-3 mensajeExito">
+            <div class="card-body">
+                <h5 class="card-title">✨ Éxito 🎉</h5>
+                <p class="card-text" th:text="${exito}"></p>
+            </div>
+        </div>
+
+    </body>
+
+
+
+</html>
